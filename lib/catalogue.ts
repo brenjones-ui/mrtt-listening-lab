@@ -19,9 +19,10 @@ export type CatalogueAsset = {
   pilotApproved: boolean;
 };
 
-// Pilot seed data copied from the MRTT Audio Repository Index.
-// Google Sheets remains the editorial source of truth; this file is a temporary
-// build-time mirror until the sync/API layer is added.
+// Preview seed data copied from the live MRTT Audio Repository Index.
+// Google Sheets remains the editorial source of truth. The preview intentionally
+// includes rights-review rows so teachers can test the product flow, but audio is
+// only playable when pilotApproved === true.
 export const catalogue: CatalogueAsset[] = [
   {
     assetId: "AUD-RHY-001",
@@ -58,20 +59,20 @@ export const catalogue: CatalogueAsset[] = [
     pilotApproved: false,
   },
   {
-    assetId: "AUD-STY-001",
-    repositoryFile: "West African Ghanaian Drumming - Polyrhythm and Thick Texture Example.mp3",
-    repositoryLink: "https://drive.google.com/file/d/160pVrZYON-zFHbjX3c1EEkw2BH_gywVn/view",
-    primaryCategory: "Style, Genre, Culture & Context",
-    musicalConcepts: ["Polyrhythm", "cyclic rhythm", "thick texture", "West African drumming"],
-    knowledgeSkill: "Recognise several layered rhythms and connect polyrhythm with a thicker texture.",
-    useType: "Listening example",
-    styleContext: "Ghana / West African drumming",
+    assetId: "AUD-FILM-003",
+    repositoryFile: "Leitmotif Melody - Indiana Jones Conjunct and Disjunct Movement.mp3",
+    repositoryLink: "https://drive.google.com/file/d/1sD0uKspJ1kDHxFoo5d7Q-Ak4Ia8lha7d/view",
+    primaryCategory: "Pitch, Melody & Motif",
+    musicalConcepts: ["Conjunct movement", "disjunct movement", "steps and leaps", "melodic shape"],
+    knowledgeSkill: "Analyse how stepwise motion and selected leaps shape a memorable heroic motif.",
+    useType: "Melody analysis model",
+    styleContext: "Film music / Indiana Jones",
     bpmTempo: "Not specified",
-    mrttStrand: "Listen",
-    placement: "Y7 African Rhythms / African Grooves",
-    rightsReview: "SOURCE/RECORDING RIGHTS REVIEW REQUIRED",
-    reuseDecision: "REVIEW / POSSIBLE KEEP",
-    notes: "Retain as culturally situated listening example pending source verification.",
+    mrttStrand: "Listen; Perform",
+    placement: "Y8 Music at the Movies / leitmotif and melody",
+    rightsReview: "COPYRIGHT/ARRANGEMENT RIGHTS REVIEW REQUIRED",
+    reuseDecision: "REVIEW / HIGH PEDAGOGICAL VALUE",
+    notes: "Guide identifies this as a piano model supporting conjunct/disjunct melodic analysis.",
     pilotApproved: false,
   },
   {
@@ -125,16 +126,50 @@ export const catalogue: CatalogueAsset[] = [
     notes: "Rich multi-concept example with clear ternary structure.",
     pilotApproved: false,
   },
+  {
+    assetId: "AUD-STY-001",
+    repositoryFile: "West African Ghanaian Drumming - Polyrhythm and Thick Texture Example.mp3",
+    repositoryLink: "https://drive.google.com/file/d/160pVrZYON-zFHbjX3c1EEkw2BH_gywVn/view",
+    primaryCategory: "Style, Genre, Culture & Context",
+    musicalConcepts: ["Polyrhythm", "cyclic rhythm", "thick texture", "West African drumming"],
+    knowledgeSkill: "Recognise several layered rhythms and connect polyrhythm with a thicker texture.",
+    useType: "Listening example",
+    styleContext: "Ghana / West African drumming",
+    bpmTempo: "Not specified",
+    mrttStrand: "Listen",
+    placement: "Y7 African Rhythms / African Grooves",
+    rightsReview: "SOURCE/RECORDING RIGHTS REVIEW REQUIRED",
+    reuseDecision: "REVIEW / POSSIBLE KEEP",
+    notes: "Retain as culturally situated listening example pending source verification.",
+    pilotApproved: false,
+  },
+  {
+    assetId: "AUD-FILM-031",
+    repositoryFile: "Cartoon Scoring Cliches - Listening Identification Set.mp3",
+    repositoryLink: "https://drive.google.com/file/d/1obb2cSuWckpY1n4OocPEnSqQ2cMXSK52/view",
+    primaryCategory: "Composition, Sound Design & Production",
+    musicalConcepts: ["scoring devices", "aural recognition", "device-to-effect matching"],
+    knowledgeSkill: "Identify scoring devices aurally and match musical features to intended dramatic functions.",
+    useType: "Listening identification / device bank",
+    styleContext: "Cartoon / animation scoring",
+    bpmTempo: "Varied",
+    mrttStrand: "Listen",
+    placement: "Y8 Music at the Movies / aural recognition",
+    rightsReview: "Check source creation/licence provenance",
+    reuseDecision: "KEEP / REPURPOSE",
+    notes: "Underlying device examples have standalone teaching value.",
+    pilotApproved: false,
+  },
 ];
 
+export const previewCatalogue = catalogue;
 export const pilotCatalogue = catalogue.filter((asset) => asset.pilotApproved);
-
-export const areas = Array.from(new Set(catalogue.map((asset) => asset.primaryCategory)));
+export const areas = Array.from(new Set(previewCatalogue.map((asset) => asset.primaryCategory)));
 
 export function conceptsForArea(area: string) {
   return Array.from(
     new Set(
-      catalogue
+      previewCatalogue
         .filter((asset) => asset.primaryCategory === area)
         .flatMap((asset) => asset.musicalConcepts),
     ),
