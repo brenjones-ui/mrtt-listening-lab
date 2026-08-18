@@ -20,9 +20,9 @@ export type CatalogueAsset = {
 };
 
 // Preview seed data copied from the live MRTT Audio Repository Index.
-// Google Sheets remains the editorial source of truth. The preview intentionally
-// includes rights-review rows so teachers can test the product flow, but audio is
-// only playable when pilotApproved === true.
+// Google Sheets remains the editorial source of truth. Rights-review rows are
+// represented by metadata only; their Drive URLs are intentionally redacted from
+// this public repository. Audio is playable only when pilotApproved === true.
 export const catalogue: CatalogueAsset[] = [
   {
     assetId: "AUD-RHY-001",
@@ -44,7 +44,7 @@ export const catalogue: CatalogueAsset[] = [
   {
     assetId: "AUD-RHY-005",
     repositoryFile: "Rite of Spring - Dance of the Youths and Maidens - Regular Pulse and Irregular Accents.mp3",
-    repositoryLink: "https://drive.google.com/file/d/1b51VhU7XH4eWiP1aPC02SgZkL-TW7BWe/view",
+    repositoryLink: "",
     primaryCategory: "Rhythm, Pulse, Meter & Groove",
     musicalConcepts: ["Regular pulse", "irregular accents", "rhythmic disruption"],
     knowledgeSkill: "Hear how irregular accents create tension against a stable underlying pulse.",
@@ -61,7 +61,7 @@ export const catalogue: CatalogueAsset[] = [
   {
     assetId: "AUD-FILM-003",
     repositoryFile: "Leitmotif Melody - Indiana Jones Conjunct and Disjunct Movement.mp3",
-    repositoryLink: "https://drive.google.com/file/d/1sD0uKspJ1kDHxFoo5d7Q-Ak4Ia8lha7d/view",
+    repositoryLink: "",
     primaryCategory: "Pitch, Melody & Motif",
     musicalConcepts: ["Conjunct movement", "disjunct movement", "steps and leaps", "melodic shape"],
     knowledgeSkill: "Analyse how stepwise motion and selected leaps shape a memorable heroic motif.",
@@ -78,7 +78,7 @@ export const catalogue: CatalogueAsset[] = [
   {
     assetId: "AUD-BAS-016",
     repositoryFile: "Prominent Bass Line - Come Together - Thin Texture and Bass Solo.mp3",
-    repositoryLink: "https://drive.google.com/file/d/1jDcl5CL7xxBVFYrqHG-wo_XSYG5GXeCV/view",
+    repositoryLink: "",
     primaryCategory: "Harmony, Tonality, Chords & Bass",
     musicalConcepts: ["Bass prominence", "thin texture", "bass solo"],
     knowledgeSkill: "Evaluate how texture and orchestration make a bass line perceptually prominent.",
@@ -95,7 +95,7 @@ export const catalogue: CatalogueAsset[] = [
   {
     assetId: "AUD-TIM-012",
     repositoryFile: "Fanfare Style - Copland Fanfare for the Common Man - Brass Percussion Dynamics Texture.mp3",
-    repositoryLink: "https://drive.google.com/file/d/16Vdg6dWQ0qZGH8xaK2wByx4ejZxaGQQ0/view",
+    repositoryLink: "",
     primaryCategory: "Timbre, Instrumentation & Texture",
     musicalConcepts: ["Fanfare", "brass", "percussion", "dynamics", "texture", "occasion"],
     knowledgeSkill: "Analyse how brass/percussion sonority, dynamics and texture communicate ceremonial importance.",
@@ -112,7 +112,7 @@ export const catalogue: CatalogueAsset[] = [
   {
     assetId: "AUD-FRM-011",
     repositoryFile: "Ternary Form - Haydn Symphony 104 Minuet and Trio - Dynamics Timbre Texture.mp3",
-    repositoryLink: "https://drive.google.com/file/d/1robXzdDQuRiBnqT4HyjUXkngCigNXbrl/view",
+    repositoryLink: "",
     primaryCategory: "Structure, Form & Arrangement",
     musicalConcepts: ["Ternary form", "minuet/trio", "dynamics", "orchestration", "texture", "3/4"],
     knowledgeSkill: "Analyse how orchestration, dynamics and texture distinguish outer and middle sections.",
@@ -129,7 +129,7 @@ export const catalogue: CatalogueAsset[] = [
   {
     assetId: "AUD-STY-001",
     repositoryFile: "West African Ghanaian Drumming - Polyrhythm and Thick Texture Example.mp3",
-    repositoryLink: "https://drive.google.com/file/d/160pVrZYON-zFHbjX3c1EEkw2BH_gywVn/view",
+    repositoryLink: "",
     primaryCategory: "Style, Genre, Culture & Context",
     musicalConcepts: ["Polyrhythm", "cyclic rhythm", "thick texture", "West African drumming"],
     knowledgeSkill: "Recognise several layered rhythms and connect polyrhythm with a thicker texture.",
@@ -146,7 +146,7 @@ export const catalogue: CatalogueAsset[] = [
   {
     assetId: "AUD-FILM-031",
     repositoryFile: "Cartoon Scoring Cliches - Listening Identification Set.mp3",
-    repositoryLink: "https://drive.google.com/file/d/1obb2cSuWckpY1n4OocPEnSqQ2cMXSK52/view",
+    repositoryLink: "",
     primaryCategory: "Composition, Sound Design & Production",
     musicalConcepts: ["scoring devices", "aural recognition", "device-to-effect matching"],
     knowledgeSkill: "Identify scoring devices aurally and match musical features to intended dramatic functions.",
