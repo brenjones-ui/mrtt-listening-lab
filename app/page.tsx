@@ -157,12 +157,12 @@ export default function Home() {
               <>
                 <p className="eyebrow">QUESTION FOR PUPILS</p>
                 <div className="preview-question">{activity.question}</div>
-                <p className="eyebrow">LISTEN FOR</p>
-                <p>{activity.listenFor}</p>
-                <div className="quality-pass">✓ Grounded in this asset&apos;s Knowledge / Skill · {challenge} · {purpose}</div>
+                <p className="eyebrow">{activity.scaffoldLabel}</p>
+                <p>{activity.scaffold}</p>
+                <div className="quality-pass">✓ Pupil-language check passed · Grounded in Knowledge / Skill · {challenge} · {purpose}</div>
               </>
             ) : (
-              <div className="quality-hold"><strong>Needs editorial question</strong><p>This asset will not go live with a generic fallback question.</p></div>
+              <div className="quality-hold"><strong>Needs editorial question</strong><p>This asset will not go live with weak, generic or teacher-heavy pupil language.</p></div>
             )}
             {!audioPlayable && <div className="rights-notice">🔒 Activity flow available for testing. Audio hidden while rights/provenance are under review.</div>}
             <button className="primary full" disabled={!activity} onClick={() => navigate("ready")}>Build activity</button>
@@ -177,7 +177,7 @@ export default function Home() {
             <h1>{activity.question}</h1>
             <div className="model-card"><span>MODEL / EXEMPLAR RESPONSE</span><p>{activity.modelResponse}</p></div>
             <div className="teacher-check"><strong>What to look for:</strong> {activity.teacherCheck}</div>
-            <div className="listen-card"><span>LISTEN FOR</span><p>{activity.listenFor}</p></div>
+            <div className="listen-card"><span>{activity.scaffoldLabel}</span><p>{activity.scaffold}</p></div>
             <button className="text-action" onClick={() => navigate("build")}>← Change the activity</button>
           </div>
 
@@ -214,12 +214,13 @@ export default function Home() {
         <section className="screen live-screen">
           <div className="live-top"><span>{responseMethod.toUpperCase()}</span><span>{followOn ? "FOLLOW-ON" : `${concept.toUpperCase()} · ${challenge.toUpperCase()} · ${purpose.toUpperCase()}`}</span></div>
           <div className="live-question">{shownActivity.question}</div>
+          <p className="live-instruction"><strong>{shownActivity.scaffoldLabel}: </strong>{shownActivity.scaffold}</p>
           {audioPlayable ? (
             <audio className="live-audio" controls preload="auto" src={driveStreamUrl(asset.repositoryLink)} />
           ) : (
             <div className="live-audio-lock">🔒 Audio unavailable in this public preview · interaction testing remains active</div>
           )}
-          <p className="live-instruction">Listen → think → respond → show your evidence.</p>
+          <p className="live-instruction">Listen → think → respond → show what you heard.</p>
 
           <div className="teacher-dock">
             <div className="dock-check"><strong>Quick class check</strong><span>{shownActivity.teacherCheck}</span></div>
