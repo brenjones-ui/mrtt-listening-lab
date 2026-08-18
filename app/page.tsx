@@ -36,7 +36,7 @@ export default function Home() {
   const activity = asset ? buildQuestion(asset, challenge, purpose) : null;
   const audioPlayable = Boolean(asset?.pilotApproved && asset.repositoryLink);
 
-  const areas = Array.from(new Set(previewCatalogue.map((item) => item.primaryCategory));
+  const areas = Array.from(new Set(previewCatalogue.map((item) => item.primaryCategory)));
   const concepts = Array.from(new Set(previewCatalogue.filter((item) => item.primaryCategory === area).flatMap((item) => item.musicalConcepts)));
 
   function clearFollowOn() {
